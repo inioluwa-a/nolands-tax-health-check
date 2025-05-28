@@ -11,60 +11,247 @@ import { Separator } from "@/components/ui/separator";
 import { CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface FormData {
-  // Section A: Basic Company Information
-  fullName: string;
-  position: string;
+  // Basic Information
+  nameOfRespondent: string;
+  nameOfOrganization: string;
+  designation: string;
   email: string;
-  companyName: string;
   businessType: string;
   rcNumber: string;
   tin: string;
   numberOfEmployees: string;
   annualTurnover: string;
-  
-  // Section B: Tax Health Check
-  firsRegistered: string;
-  monthlyVAT: string;
-  payeOnTime: string;
-  taxAudit: string;
-  withholdingTax: string;
-  taxHealthComment: string;
-  
-  // Section C: Compliance Checks
-  cacReturns: string;
-  digitalRecords: string;
-  directorsIncomeTax: string;
-  complianceComment: string;
-  
-  // Section D: Client Signature
-  clientName: string;
   signatureDate: string;
+  
+  // Section I: General
+  firsRegistered: string;
+  firsRegisteredComment: string;
+  taxFileLocation: string;
+  taxFileLocationComment: string;
+  employeesOtherStates: string;
+  employeesOtherStatesComment: string;
+  stateIrsRegistered: string;
+  stateIrsRegisteredComment: string;
+  officeLocation: string;
+  officeLocationComment: string;
+  monthlyReconciliations: string;
+  monthlyReconciliationsComment: string;
+  reconcilingItems: string;
+  reconcilingItemsComment: string;
+  parentSubsidiary: string;
+  parentSubsidiaryComment: string;
+  relatedPartiesOutsideNigeria: string;
+  relatedPartiesOutsideNigeriaComment: string;
+  groupHeadOfficeLocation: string;
+  groupHeadOfficeLocationComment: string;
+  relatedPartyContracts: string;
+  relatedPartyContractsComment: string;
+  transactionsRelatedParties: string;
+  transactionsRelatedPartiesComment: string;
+  
+  // Section II: Withholding Tax
+  vendorRegistration: string;
+  vendorRegistrationComment: string;
+  taxesWithheld: string;
+  taxesWithheldComment: string;
+  applicableRates: string;
+  applicableRatesComment: string;
+  taxesRemitted: string;
+  taxesRemittedComment: string;
+  whtCreditNotes: string;
+  whtCreditNotesComment: string;
+  obtainedWhtCreditNotes: string;
+  obtainedWhtCreditNotesComment: string;
+  
+  // Section III: Personal Income Tax
+  allIncomesIncluded: string;
+  allIncomesIncludedComment: string;
+  correctTaxReliefs: string;
+  correctTaxReliefsComment: string;
+  reliefsSupported: string;
+  reliefsSupportedComment: string;
+  benefitsInKindDisclosed: string;
+  benefitsInKindDisclosedComment: string;
+  guesthouseOfficialAccommodation: string;
+  guesthouseOfficialAccommodationComment: string;
+  rentAddedToIncome: string;
+  rentAddedToIncomeComment: string;
+  housingRentsWithholding: string;
+  housingRentsWithholdingComment: string;
+  vehicleUsage: string;
+  vehicleUsageComment: string;
+  billsPaidByCompany: string;
+  billsPaidByCompanyComment: string;
+  assetsProvidedBenefit: string;
+  assetsProvidedBenefitComment: string;
+  domesticServantWages: string;
+  domesticServantWagesComment: string;
+  mealProvision: string;
+  mealProvisionComment: string;
+  exGratiaPayments: string;
+  exGratiaPaymentsComment: string;
+  voluntaryPensionContribution: string;
+  voluntaryPensionContributionComment: string;
+  lifeAssurancePolicies: string;
+  lifeAssurancePoliciesComment: string;
+  statutoryDeductions: string;
+  statutoryDeductionsComment: string;
+  expatriateStaff: string;
+  expatriateStaffComment: string;
+  expatriateDaysRecord: string;
+  expatriateDaysRecordComment: string;
+  expatriateQuota: string;
+  expatriateQuotaComment: string;
+  expatriateReturns: string;
+  expatriateReturnsComment: string;
+  
+  // Section IV: VAT
+  vatRegistered: string;
+  vatRegisteredComment: string;
+  vatReturnsMonthly: string;
+  vatReturnsMonthlyComment: string;
+  vatInputsRecord: string;
+  vatInputsRecordComment: string;
+  vatPaymentsOffset: string;
+  vatPaymentsOffsetComment: string;
+  netVatPayments: string;
+  netVatPaymentsComment: string;
+  refundableVatCarried: string;
+  refundableVatCarriedComment: string;
+  litigationReadiness: string;
+  litigationReadinessComment: string;
+  
+  // Section V: Company Income Tax
+  selfAssessmentReturns: string;
+  selfAssessmentReturnsComment: string;
+  adequateProvision: string;
+  adequateProvisionComment: string;
+  fixedAssetsAdditions: string;
+  fixedAssetsAdditionsComment: string;
+  certificateAcceptance: string;
+  certificateAcceptanceComment: string;
+  operatingLeaseList: string;
+  operatingLeaseListComment: string;
+  disposedAssetsList: string;
+  disposedAssetsListComment: string;
+  disposedAssetsDetails: string;
+  disposedAssetsDetailsComment: string;
+  operatingExpensesDescriptive: string;
+  operatingExpensesDescriptiveComment: string;
+  expenseSupportingDocs: string;
+  expenseSupportingDocsComment: string;
+  capitalNatureExpenses: string;
+  capitalNatureExpensesComment: string;
+  disposalProfitLoss: string;
+  disposalProfitLossComment: string;
+  approvedDonations: string;
+  approvedDonationsComment: string;
+  capitalNatureDonations: string;
+  capitalNatureDonationsComment: string;
+  donationsLimit: string;
+  donationsLimitComment: string;
+  rentalCharges: string;
+  rentalChargesComment: string;
+  taxesSufferedAtSource: string;
+  taxesSufferedAtSourceComment: string;
+  debtsOrdinaryCourse: string;
+  debtsOrdinaryCourseComment: string;
+  badDebtsSpecific: string;
+  badDebtsSpecificComment: string;
+  recoveryEfforts: string;
+  recoveryEffortsComment: string;
+  writeOffsIncome: string;
+  writeOffsIncomeComment: string;
 }
 
 const TaxHealthCheckForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
-    fullName: '',
-    position: '',
+    nameOfRespondent: '',
+    nameOfOrganization: '',
+    designation: '',
     email: '',
-    companyName: '',
     businessType: '',
     rcNumber: '',
     tin: '',
     numberOfEmployees: '',
     annualTurnover: '',
-    firsRegistered: '',
-    monthlyVAT: '',
-    payeOnTime: '',
-    taxAudit: '',
-    withholdingTax: '',
-    taxHealthComment: '',
-    cacReturns: '',
-    digitalRecords: '',
-    directorsIncomeTax: '',
-    complianceComment: '',
-    clientName: '',
-    signatureDate: new Date().toISOString().split('T')[0]
+    signatureDate: new Date().toISOString().split('T')[0],
+    
+    // Section I
+    firsRegistered: '', firsRegisteredComment: '',
+    taxFileLocation: '', taxFileLocationComment: '',
+    employeesOtherStates: '', employeesOtherStatesComment: '',
+    stateIrsRegistered: '', stateIrsRegisteredComment: '',
+    officeLocation: '', officeLocationComment: '',
+    monthlyReconciliations: '', monthlyReconciliationsComment: '',
+    reconcilingItems: '', reconcilingItemsComment: '',
+    parentSubsidiary: '', parentSubsidiaryComment: '',
+    relatedPartiesOutsideNigeria: '', relatedPartiesOutsideNigeriaComment: '',
+    groupHeadOfficeLocation: '', groupHeadOfficeLocationComment: '',
+    relatedPartyContracts: '', relatedPartyContractsComment: '',
+    transactionsRelatedParties: '', transactionsRelatedPartiesComment: '',
+    
+    // Section II
+    vendorRegistration: '', vendorRegistrationComment: '',
+    taxesWithheld: '', taxesWithheldComment: '',
+    applicableRates: '', applicableRatesComment: '',
+    taxesRemitted: '', taxesRemittedComment: '',
+    whtCreditNotes: '', whtCreditNotesComment: '',
+    obtainedWhtCreditNotes: '', obtainedWhtCreditNotesComment: '',
+    
+    // Section III
+    allIncomesIncluded: '', allIncomesIncludedComment: '',
+    correctTaxReliefs: '', correctTaxReliefsComment: '',
+    reliefsSupported: '', reliefsSupportedComment: '',
+    benefitsInKindDisclosed: '', benefitsInKindDisclosedComment: '',
+    guesthouseOfficialAccommodation: '', guesthouseOfficialAccommodationComment: '',
+    rentAddedToIncome: '', rentAddedToIncomeComment: '',
+    housingRentsWithholding: '', housingRentsWithholdingComment: '',
+    vehicleUsage: '', vehicleUsageComment: '',
+    billsPaidByCompany: '', billsPaidByCompanyComment: '',
+    assetsProvidedBenefit: '', assetsProvidedBenefitComment: '',
+    domesticServantWages: '', domesticServantWagesComment: '',
+    mealProvision: '', mealProvisionComment: '',
+    exGratiaPayments: '', exGratiaPaymentsComment: '',
+    voluntaryPensionContribution: '', voluntaryPensionContributionComment: '',
+    lifeAssurancePolicies: '', lifeAssurancePoliciesComment: '',
+    statutoryDeductions: '', statutoryDeductionsComment: '',
+    expatriateStaff: '', expatriateStaffComment: '',
+    expatriateDaysRecord: '', expatriateDaysRecordComment: '',
+    expatriateQuota: '', expatriateQuotaComment: '',
+    expatriateReturns: '', expatriateReturnsComment: '',
+    
+    // Section IV
+    vatRegistered: '', vatRegisteredComment: '',
+    vatReturnsMonthly: '', vatReturnsMonthlyComment: '',
+    vatInputsRecord: '', vatInputsRecordComment: '',
+    vatPaymentsOffset: '', vatPaymentsOffsetComment: '',
+    netVatPayments: '', netVatPaymentsComment: '',
+    refundableVatCarried: '', refundableVatCarriedComment: '',
+    litigationReadiness: '', litigationReadinessComment: '',
+    
+    // Section V
+    selfAssessmentReturns: '', selfAssessmentReturnsComment: '',
+    adequateProvision: '', adequateProvisionComment: '',
+    fixedAssetsAdditions: '', fixedAssetsAdditionsComment: '',
+    certificateAcceptance: '', certificateAcceptanceComment: '',
+    operatingLeaseList: '', operatingLeaseListComment: '',
+    disposedAssetsList: '', disposedAssetsListComment: '',
+    disposedAssetsDetails: '', disposedAssetsDetailsComment: '',
+    operatingExpensesDescriptive: '', operatingExpensesDescriptiveComment: '',
+    expenseSupportingDocs: '', expenseSupportingDocsComment: '',
+    capitalNatureExpenses: '', capitalNatureExpensesComment: '',
+    disposalProfitLoss: '', disposalProfitLossComment: '',
+    approvedDonations: '', approvedDonationsComment: '',
+    capitalNatureDonations: '', capitalNatureDonationsComment: '',
+    donationsLimit: '', donationsLimitComment: '',
+    rentalCharges: '', rentalChargesComment: '',
+    taxesSufferedAtSource: '', taxesSufferedAtSourceComment: '',
+    debtsOrdinaryCourse: '', debtsOrdinaryCourseComment: '',
+    badDebtsSpecific: '', badDebtsSpecificComment: '',
+    recoveryEfforts: '', recoveryEffortsComment: '',
+    writeOffsIncome: '', writeOffsIncomeComment: '',
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -79,23 +266,32 @@ const TaxHealthCheckForm = () => {
   const validateStep = (step: number): boolean => {
     switch (step) {
       case 1:
-        return !!(formData.fullName && formData.position && formData.email && 
-                 formData.companyName && formData.businessType && formData.tin && 
-                 formData.numberOfEmployees && formData.annualTurnover);
+        return !!(formData.nameOfRespondent && formData.nameOfOrganization && 
+                 formData.designation && formData.email && formData.businessType && 
+                 formData.tin && formData.numberOfEmployees && formData.annualTurnover);
       case 2:
-        return !!(formData.firsRegistered && formData.monthlyVAT && formData.payeOnTime && 
-                 formData.taxAudit && formData.withholdingTax);
+        return !!(formData.firsRegistered && formData.taxFileLocation && 
+                 formData.employeesOtherStates && formData.stateIrsRegistered && 
+                 formData.officeLocation);
       case 3:
-        return !!(formData.cacReturns && formData.digitalRecords && formData.directorsIncomeTax);
+        return !!(formData.vendorRegistration && formData.taxesWithheld && 
+                 formData.applicableRates && formData.taxesRemitted);
       case 4:
-        return !!formData.clientName;
+        return !!(formData.allIncomesIncluded && formData.correctTaxReliefs && 
+                 formData.reliefsSupported && formData.benefitsInKindDisclosed);
+      case 5:
+        return !!(formData.vatRegistered && formData.vatReturnsMonthly && 
+                 formData.vatInputsRecord && formData.vatPaymentsOffset);
+      case 6:
+        return !!(formData.selfAssessmentReturns && formData.adequateProvision && 
+                 formData.fixedAssetsAdditions);
       default:
         return true;
     }
   };
 
   const nextStep = () => {
-    if (validateStep(currentStep) && currentStep < 4) {
+    if (validateStep(currentStep) && currentStep < 6) {
       setCurrentStep(currentStep + 1);
     }
   };
@@ -109,9 +305,8 @@ const TaxHealthCheckForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateStep(4)) return;
+    if (!validateStep(6)) return;
     
-    // Create FormData for submission
     const submitData = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       submitData.append(key, value);
@@ -137,6 +332,51 @@ const TaxHealthCheckForm = () => {
     }
   };
 
+  const renderQuestionRow = (
+    question: string,
+    fieldName: keyof FormData,
+    commentFieldName: keyof FormData,
+    includeNotApplicable: boolean = true
+  ) => (
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 items-start py-3 border-b border-gray-100">
+      <div className="lg:col-span-1">
+        <Label className="font-locator text-sm">{question}</Label>
+      </div>
+      <div className="lg:col-span-1">
+        <RadioGroup
+          name={fieldName}
+          value={formData[fieldName]}
+          onValueChange={(value) => handleInputChange(fieldName, value)}
+          className="flex gap-4"
+        >
+          <div className="flex items-center space-x-1">
+            <RadioGroupItem value="yes" id={`${fieldName}-yes`} />
+            <Label htmlFor={`${fieldName}-yes`} className="text-xs">Yes</Label>
+          </div>
+          <div className="flex items-center space-x-1">
+            <RadioGroupItem value="no" id={`${fieldName}-no`} />
+            <Label htmlFor={`${fieldName}-no`} className="text-xs">No</Label>
+          </div>
+          {includeNotApplicable && (
+            <div className="flex items-center space-x-1">
+              <RadioGroupItem value="na" id={`${fieldName}-na`} />
+              <Label htmlFor={`${fieldName}-na`} className="text-xs">N/A</Label>
+            </div>
+          )}
+        </RadioGroup>
+      </div>
+      <div className="lg:col-span-2">
+        <Textarea
+          name={commentFieldName}
+          value={formData[commentFieldName]}
+          onChange={(e) => handleInputChange(commentFieldName, e.target.value)}
+          className="min-h-[60px] text-sm"
+          placeholder="Comments..."
+        />
+      </div>
+    </div>
+  );
+
   if (isSubmitted) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
@@ -159,17 +399,19 @@ const TaxHealthCheckForm = () => {
   }
 
   const stepTitles = [
-    "Basic Company Information",
-    "Tax Health Check", 
-    "Compliance Checks",
-    "Client Signature"
+    "Basic Information",
+    "Section I: General", 
+    "Section II: Withholding Tax",
+    "Section III: Personal Income Tax",
+    "Section IV: Value Added Tax (VAT)",
+    "Section V: Company Income Tax"
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Header */}
       <div className="bg-nolands-primary text-white py-8 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <img 
             src="https://nolands.global/theme/assets/icon-nolands-logo-white-small.svg" 
             alt="Nolands Logo" 
@@ -191,10 +433,10 @@ const TaxHealthCheckForm = () => {
       </div>
 
       {/* Progress Indicator */}
-      <div className="max-w-4xl mx-auto p-4 pt-8">
-        <div className="flex items-center justify-between mb-8">
+      <div className="max-w-6xl mx-auto p-4 pt-8">
+        <div className="flex items-center justify-between mb-8 overflow-x-auto">
           {stepTitles.map((title, index) => (
-            <div key={index} className="flex items-center">
+            <div key={index} className="flex items-center min-w-0">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
                 currentStep > index + 1 ? 'bg-green-500 text-white' :
                 currentStep === index + 1 ? 'bg-nolands-primary text-white' :
@@ -202,13 +444,13 @@ const TaxHealthCheckForm = () => {
               }`}>
                 {currentStep > index + 1 ? '✓' : index + 1}
               </div>
-              <span className={`ml-2 text-sm font-medium hidden md:block ${
+              <span className={`ml-2 text-xs font-medium hidden lg:block ${
                 currentStep === index + 1 ? 'text-nolands-primary' : 'text-gray-600'
               }`}>
                 {title}
               </span>
               {index < stepTitles.length - 1 && (
-                <div className={`h-1 w-8 md:w-16 mx-2 md:mx-4 ${
+                <div className={`h-1 w-4 lg:w-8 mx-2 ${
                   currentStep > index + 1 ? 'bg-green-500' : 'bg-gray-300'
                 }`} />
               )}
@@ -221,44 +463,57 @@ const TaxHealthCheckForm = () => {
           <Card className="mb-8">
             <CardHeader>
               <CardTitle className="font-locator-display font-bold text-xl text-nolands-primary">
-                Section {currentStep}: {stepTitles[currentStep - 1]}
+                {stepTitles[currentStep - 1]}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               
-              {/* Section A: Basic Company Information */}
+              {/* Basic Information */}
               {currentStep === 1 && (
                 <>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <Label htmlFor="fullName" className="font-locator font-semibold">
-                        Full Name of Respondent *
+                      <Label htmlFor="nameOfRespondent" className="font-locator font-semibold">
+                        Name of Respondent *
                       </Label>
                       <Input
-                        id="fullName"
-                        name="fullName"
+                        id="nameOfRespondent"
+                        name="nameOfRespondent"
                         required
-                        value={formData.fullName}
-                        onChange={(e) => handleInputChange('fullName', e.target.value)}
+                        value={formData.nameOfRespondent}
+                        onChange={(e) => handleInputChange('nameOfRespondent', e.target.value)}
                         className="mt-1"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="position" className="font-locator font-semibold">
-                        Position *
+                      <Label htmlFor="nameOfOrganization" className="font-locator font-semibold">
+                        Name of Organization *
                       </Label>
                       <Input
-                        id="position"
-                        name="position"
+                        id="nameOfOrganization"
+                        name="nameOfOrganization"
                         required
-                        value={formData.position}
-                        onChange={(e) => handleInputChange('position', e.target.value)}
+                        value={formData.nameOfOrganization}
+                        onChange={(e) => handleInputChange('nameOfOrganization', e.target.value)}
                         className="mt-1"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <Label htmlFor="designation" className="font-locator font-semibold">
+                        Designation *
+                      </Label>
+                      <Input
+                        id="designation"
+                        name="designation"
+                        required
+                        value={formData.designation}
+                        onChange={(e) => handleInputChange('designation', e.target.value)}
+                        className="mt-1"
+                      />
+                    </div>
                     <div>
                       <Label htmlFor="email" className="font-locator font-semibold">
                         Email Address *
@@ -270,19 +525,6 @@ const TaxHealthCheckForm = () => {
                         required
                         value={formData.email}
                         onChange={(e) => handleInputChange('email', e.target.value)}
-                        className="mt-1"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="companyName" className="font-locator font-semibold">
-                        Company Name *
-                      </Label>
-                      <Input
-                        id="companyName"
-                        name="companyName"
-                        required
-                        value={formData.companyName}
-                        onChange={(e) => handleInputChange('companyName', e.target.value)}
                         className="mt-1"
                       />
                     </div>
@@ -367,262 +609,475 @@ const TaxHealthCheckForm = () => {
                       </SelectContent>
                     </Select>
                   </div>
+
+                  <div>
+                    <Label htmlFor="signatureDate" className="font-locator font-semibold">
+                      Date *
+                    </Label>
+                    <Input
+                      id="signatureDate"
+                      name="signatureDate"
+                      type="date"
+                      required
+                      value={formData.signatureDate}
+                      onChange={(e) => handleInputChange('signatureDate', e.target.value)}
+                      className="mt-1"
+                    />
+                  </div>
                 </>
               )}
 
-              {/* Section B: Tax Health Check */}
+              {/* Section I: General */}
               {currentStep === 2 && (
-                <>
-                  <div className="space-y-4">
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Are you currently registered with FIRS?
-                      </Label>
-                      <RadioGroup
-                        name="firsRegistered"
-                        value={formData.firsRegistered}
-                        onValueChange={(value) => handleInputChange('firsRegistered', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="firs-yes" />
-                          <Label htmlFor="firs-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="firs-no" />
-                          <Label htmlFor="firs-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Do you file monthly VAT returns?
-                      </Label>
-                      <RadioGroup
-                        name="monthlyVAT"
-                        value={formData.monthlyVAT}
-                        onValueChange={(value) => handleInputChange('monthlyVAT', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="vat-yes" />
-                          <Label htmlFor="vat-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="vat-no" />
-                          <Label htmlFor="vat-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Do you pay PAYE on time?
-                      </Label>
-                      <RadioGroup
-                        name="payeOnTime"
-                        value={formData.payeOnTime}
-                        onValueChange={(value) => handleInputChange('payeOnTime', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="paye-yes" />
-                          <Label htmlFor="paye-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="paye-no" />
-                          <Label htmlFor="paye-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Have you had a tax audit in the past 2 years?
-                      </Label>
-                      <RadioGroup
-                        name="taxAudit"
-                        value={formData.taxAudit}
-                        onValueChange={(value) => handleInputChange('taxAudit', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="audit-yes" />
-                          <Label htmlFor="audit-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="audit-no" />
-                          <Label htmlFor="audit-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Are you compliant with withholding tax obligations?
-                      </Label>
-                      <RadioGroup
-                        name="withholdingTax"
-                        value={formData.withholdingTax}
-                        onValueChange={(value) => handleInputChange('withholdingTax', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="withholding-yes" />
-                          <Label htmlFor="withholding-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="withholding-no" />
-                          <Label htmlFor="withholding-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
+                    <div>Action</div>
+                    <div>Response</div>
+                    <div className="lg:col-span-2">Comment</div>
                   </div>
-
-                  <Separator />
-
-                  <div>
-                    <Label htmlFor="taxHealthComment" className="font-locator font-semibold">
-                      Additional Comments (Tax Health Check)
-                    </Label>
-                    <Textarea
-                      id="taxHealthComment"
-                      name="taxHealthComment"
-                      value={formData.taxHealthComment}
-                      onChange={(e) => handleInputChange('taxHealthComment', e.target.value)}
-                      className="mt-1"
-                      placeholder="Any additional information or comments regarding your tax compliance..."
-                    />
-                  </div>
-                </>
+                  
+                  {renderQuestionRow(
+                    "Has company been registered with FIRS?",
+                    'firsRegistered',
+                    'firsRegisteredComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Which location will company prefer to have its tax file domiciled?",
+                    'taxFileLocation',
+                    'taxFileLocationComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are there employees resident in states other than Lagos? (mention other states under the comment column)",
+                    'employeesOtherStates',
+                    'employeesOtherStatesComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Has the company registered with any state IRS office?",
+                    'stateIrsRegistered',
+                    'stateIrsRegisteredComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "What is the company's office located?",
+                    'officeLocation',
+                    'officeLocationComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are monthly reconciliations carried out between the various tax sub-ledgers and General ledger?",
+                    'monthlyReconciliations',
+                    'monthlyReconciliationsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are all reconciling items promptly followed up and properly resolved?",
+                    'reconcilingItems',
+                    'reconcilingItemsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is the company a parent company or subsidiary of another company?",
+                    'parentSubsidiary',
+                    'parentSubsidiaryComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Does the company have related parties outside Nigeria?",
+                    'relatedPartiesOutsideNigeria',
+                    'relatedPartiesOutsideNigeriaComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Where is the Head Office of the Group located?",
+                    'groupHeadOfficeLocation',
+                    'groupHeadOfficeLocationComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are related party transactions supported by properly executed contract agreements?",
+                    'relatedPartyContracts',
+                    'relatedPartyContractsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have there been transactions between Nigerian office and the other related parties?",
+                    'transactionsRelatedParties',
+                    'transactionsRelatedPartiesComment'
+                  )}
+                </div>
               )}
 
-              {/* Section C: Compliance Checks */}
+              {/* Section II: Withholding Tax */}
               {currentStep === 3 && (
-                <>
-                  <div className="space-y-4">
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Have you filed your CAC Annual Returns in the last 2 years?
-                      </Label>
-                      <RadioGroup
-                        name="cacReturns"
-                        value={formData.cacReturns}
-                        onValueChange={(value) => handleInputChange('cacReturns', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="cac-yes" />
-                          <Label htmlFor="cac-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="cac-no" />
-                          <Label htmlFor="cac-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Do you keep financial records digitally?
-                      </Label>
-                      <RadioGroup
-                        name="digitalRecords"
-                        value={formData.digitalRecords}
-                        onValueChange={(value) => handleInputChange('digitalRecords', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="digital-yes" />
-                          <Label htmlFor="digital-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="digital-no" />
-                          <Label htmlFor="digital-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-
-                    <div>
-                      <Label className="font-locator font-semibold text-base">
-                        Do you file personal income tax for directors?
-                      </Label>
-                      <RadioGroup
-                        name="directorsIncomeTax"
-                        value={formData.directorsIncomeTax}
-                        onValueChange={(value) => handleInputChange('directorsIncomeTax', value)}
-                        className="flex gap-6 mt-2"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="yes" id="directors-yes" />
-                          <Label htmlFor="directors-yes">Yes</Label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="no" id="directors-no" />
-                          <Label htmlFor="directors-no">No</Label>
-                        </div>
-                      </RadioGroup>
-                    </div>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
+                    <div>Action</div>
+                    <div>Response</div>
+                    <div className="lg:col-span-2">Comment</div>
                   </div>
-
-                  <Separator />
-
-                  <div>
-                    <Label htmlFor="complianceComment" className="font-locator font-semibold">
-                      Additional Comments (Compliance)
-                    </Label>
-                    <Textarea
-                      id="complianceComment"
-                      name="complianceComment"
-                      value={formData.complianceComment}
-                      onChange={(e) => handleInputChange('complianceComment', e.target.value)}
-                      className="mt-1"
-                      placeholder="Any additional information or comments regarding your compliance status..."
-                    />
-                  </div>
-                </>
+                  
+                  {renderQuestionRow(
+                    "Does the company observe a vendor registration process?",
+                    'vendorRegistration',
+                    'vendorRegistrationComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have taxes been withheld from payments to which they are applicable?",
+                    'taxesWithheld',
+                    'taxesWithheldComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have applicable rates been applied in calculating and deducting withholding tax on payments made or credit granted by the company?",
+                    'applicableRates',
+                    'applicableRatesComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have deducted taxes been remitted to the appropriate tax authorities through the designated banks?",
+                    'taxesRemitted',
+                    'taxesRemittedComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have Withholding tax (WHT) credit notes been processed, obtained, and forwarded to their respective owners?",
+                    'whtCreditNotes',
+                    'whtCreditNotesComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Has the company obtained Withholding Tax credit notes from FIRS?",
+                    'obtainedWhtCreditNotes',
+                    'obtainedWhtCreditNotesComment'
+                  )}
+                </div>
               )}
 
-              {/* Section D: Client Signature */}
+              {/* Section III: Personal Income Tax */}
               {currentStep === 4 && (
-                <>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <Label htmlFor="clientName" className="font-locator font-semibold">
-                        Client Name *
-                      </Label>
-                      <Input
-                        id="clientName"
-                        name="clientName"
-                        required
-                        value={formData.clientName}
-                        onChange={(e) => handleInputChange('clientName', e.target.value)}
-                        className="mt-1"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="signatureDate" className="font-locator font-semibold">
-                        Date *
-                      </Label>
-                      <Input
-                        id="signatureDate"
-                        name="signatureDate"
-                        type="date"
-                        required
-                        value={formData.signatureDate}
-                        onChange={(e) => handleInputChange('signatureDate', e.target.value)}
-                        className="mt-1"
-                      />
-                    </div>
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
+                    <div>Action</div>
+                    <div>Response</div>
+                    <div className="lg:col-span-2">Comment</div>
                   </div>
+                  
+                  {renderQuestionRow(
+                    "Are all incomes (including allowances and benefits in kind) on the employees' personal records included in the payroll?",
+                    'allIncomesIncluded',
+                    'allIncomesIncludedComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Has the correct calculation of tax reliefs in accordance with the relevant regulations been made as listed in Schedule II?",
+                    'correctTaxReliefs',
+                    'correctTaxReliefsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are all reliefs claimed and granted valid and supported with documented evidence?",
+                    'reliefsSupported',
+                    'reliefsSupportedComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Has the company disclosed on behalf of each employee, benefits-in-kind he enjoys by virtue of his employment?",
+                    'benefitsInKindDisclosed',
+                    'benefitsInKindDisclosedComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is the house being provided to the employee a guesthouse or official accommodation for the employee's exclusive occupation?",
+                    'guesthouseOfficialAccommodation',
+                    'guesthouseOfficialAccommodationComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "If the accommodation provided by the employer is rented, has the annual rent been added to the taxable income for the employee?",
+                    'rentAddedToIncome',
+                    'rentAddedToIncomeComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have all housing rents paid off-payroll directly to employees' landlords been subjected to deduction of withholding tax at the rate of 10%?",
+                    'housingRentsWithholding',
+                    'housingRentsWithholdingComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is the vehicle given to the employee being used as an official car or as a pool car?",
+                    'vehicleUsage',
+                    'vehicleUsageComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have all bills paid by the company on behalf of the employee been added to the employees' taxable income?",
+                    'billsPaidByCompany',
+                    'billsPaidByCompanyComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "For all other assets provided by the employer for the employees' benefit, has 5% of the cost of these assets been calculated and added to the employees' remuneration?",
+                    'assetsProvidedBenefit',
+                    'assetsProvidedBenefitComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have the total annual wages paid in respect of domestic servant(s) being used by the employees been added to the employees' taxable income?",
+                    'domesticServantWages',
+                    'domesticServantWagesComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Does the company have provision for meals in any canteen or luncheon vouchers for its employees?",
+                    'mealProvision',
+                    'mealProvisionComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have all ex-gratia payments, 13th month salary and bonus with the exception of end-of-service gratuities been taxed in the hands of employees?",
+                    'exGratiaPayments',
+                    'exGratiaPaymentsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are there staff interested in making voluntary pension contribution?",
+                    'voluntaryPensionContribution',
+                    'voluntaryPensionContributionComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are there staff on Life Assurance policies?",
+                    'lifeAssurancePolicies',
+                    'lifeAssurancePoliciesComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have all other statutory deductions been made from the payroll at the current rates? (NSITF - 1% of total gross salary, NHF - 2.5% of annual basic salary)",
+                    'statutoryDeductions',
+                    'statutoryDeductionsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are there expatriate staff in the company?",
+                    'expatriateStaff',
+                    'expatriateStaffComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "For all expatriates, is there a record clearly indicating the number of days spent in Nigeria on account of the Company's duties?",
+                    'expatriateDaysRecord',
+                    'expatriateDaysRecordComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have the company obtained expatriate quota?",
+                    'expatriateQuota',
+                    'expatriateQuotaComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Do the company file their expatriate returns?",
+                    'expatriateReturns',
+                    'expatriateReturnsComment'
+                  )}
+                </div>
+              )}
 
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <p className="text-sm text-gray-600 font-locator">
-                      By submitting this form, I confirm that the information provided is accurate and complete to the best of my knowledge. I understand that this information will be used by Nolands Nigeria for the purpose of conducting a tax health check and providing relevant advisory services.
-                    </p>
+              {/* Section IV: VAT */}
+              {currentStep === 5 && (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
+                    <div>Action</div>
+                    <div>Response</div>
+                    <div className="lg:col-span-2">Comment</div>
                   </div>
-                </>
+                  
+                  {renderQuestionRow(
+                    "Is the Company registered with local VAT offices nearest to it in all its locations?",
+                    'vatRegistered',
+                    'vatRegisteredComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are VAT returns filed monthly?",
+                    'vatReturnsMonthly',
+                    'vatReturnsMonthlyComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is there a record (especially receipts) of VAT paid on all inputs to the Company's sales?",
+                    'vatInputsRecord',
+                    'vatInputsRecordComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are these payments used to offset the VAT payable for each period?",
+                    'vatPaymentsOffset',
+                    'vatPaymentsOffsetComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are payments of net VAT payable (if any) made within the statutory period?",
+                    'netVatPayments',
+                    'netVatPaymentsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is refundable VAT (if any) carried forward on subsequent months' VAT returns?",
+                    'refundableVatCarried',
+                    'refundableVatCarriedComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "In the case of any ambiguity leading to different interpretations of the law and subsequently, litigation, is the company ready to pursue the litigation option or settle out of court?",
+                    'litigationReadiness',
+                    'litigationReadinessComment'
+                  )}
+                </div>
+              )}
+
+              {/* Section V: Company Income Tax */}
+              {currentStep === 6 && (
+                <div className="space-y-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
+                    <div>Action</div>
+                    <div>Response</div>
+                    <div className="lg:col-span-2">Comment</div>
+                  </div>
+                  
+                  <div className="font-semibold text-gray-700 py-2">GENERAL</div>
+                  
+                  {renderQuestionRow(
+                    "Does the Company file its tax returns based on self-assessment?",
+                    'selfAssessmentReturns',
+                    'selfAssessmentReturnsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is there adequate provision (at least 32.5% of assessable profits) in the books for the tax liability?",
+                    'adequateProvision',
+                    'adequateProvisionComment'
+                  )}
+                  
+                  <div className="font-semibold text-gray-700 py-2">FIXED ASSETS</div>
+                  
+                  {renderQuestionRow(
+                    "Has a list of additions to fixed assets been prepared for the current year?",
+                    'fixedAssetsAdditions',
+                    'fixedAssetsAdditionsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Has the company applied for, processed, and obtained Certificate of acceptance in respect of additions to individual assets above 500,000 from the Ministry of Industries?",
+                    'certificateAcceptance',
+                    'certificateAcceptanceComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is there a list of assets leased to customers under operating lease agreement that includes details about customers, type of business engaged in and description of the assets?",
+                    'operatingLeaseList',
+                    'operatingLeaseListComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Is there a list of fixed / leased assets disposed during the period?",
+                    'disposedAssetsList',
+                    'disposedAssetsListComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "For assets disposed whose sales proceeds exceed the cost, have the following additional information been provided? (Cost of repairs, advertising cost, professional fees, purchaser details, arm's length evidence)",
+                    'disposedAssetsDetails',
+                    'disposedAssetsDetailsComment'
+                  )}
+                  
+                  <div className="font-semibold text-gray-700 py-2">PROFIT AND LOSS ACCOUNT ITEMS</div>
+                  
+                  {renderQuestionRow(
+                    "Are all operating expense items specific and descriptive?",
+                    'operatingExpensesDescriptive',
+                    'operatingExpensesDescriptiveComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are there supporting documents for all expenses incurred during the year?",
+                    'expenseSupportingDocs',
+                    'expenseSupportingDocsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are there repairs or maintenance expenses of a capital nature during the year? If yes, have these been capitalised?",
+                    'capitalNatureExpenses',
+                    'capitalNatureExpensesComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Does profit / loss recognised on the disposal agree with the Financial Statement?",
+                    'disposalProfitLoss',
+                    'disposalProfitLossComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are subscriptions and donations been made to bodies approved by the Tax Act?",
+                    'approvedDonations',
+                    'approvedDonationsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are donations of a capital nature? Donations of a capital nature are not allowable.",
+                    'capitalNatureDonations',
+                    'capitalNatureDonationsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are total donations up to 10% of total profits? This is the maximum allowable on deductions.",
+                    'donationsLimit',
+                    'donationsLimitComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have rental charges in respect of residential accommodation occupied by employees of the Company been computed?",
+                    'rentalCharges',
+                    'rentalChargesComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have all taxes suffered by deductions at source been used to reduce the Company's tax liability?",
+                    'taxesSufferedAtSource',
+                    'taxesSufferedAtSourceComment'
+                  )}
+                  
+                  <div className="font-semibold text-gray-700 py-2">BAD AND DOUBTFUL DEBTS</div>
+                  
+                  {renderQuestionRow(
+                    "Were the debts incurred in the ordinary course of the Company's business?",
+                    'debtsOrdinaryCourse',
+                    'debtsOrdinaryCourseComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Are amounts recognised as bad and doubtful debts specific, with names and addresses included as part of details?",
+                    'badDebtsSpecific',
+                    'badDebtsSpecificComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Has evidence of efforts made to recover the debts (e.g. correspondence with the debtor, bank, lawyer etc) been documented?",
+                    'recoveryEfforts',
+                    'recoveryEffortsComment'
+                  )}
+                  
+                  {renderQuestionRow(
+                    "Have write-offs (previously allowed) for doubtful debts no longer required been recognised as income in the year?",
+                    'writeOffsIncome',
+                    'writeOffsIncomeComment'
+                  )}
+                </div>
               )}
             </CardContent>
           </Card>
@@ -641,10 +1096,10 @@ const TaxHealthCheckForm = () => {
             </Button>
 
             <span className="text-sm text-gray-600">
-              Step {currentStep} of 4
+              Step {currentStep} of 6
             </span>
 
-            {currentStep < 4 ? (
+            {currentStep < 6 ? (
               <Button
                 type="button"
                 onClick={nextStep}
@@ -657,7 +1112,7 @@ const TaxHealthCheckForm = () => {
             ) : (
               <Button 
                 type="submit" 
-                disabled={!validateStep(4)}
+                disabled={!validateStep(6)}
                 className="bg-nolands-primary hover:bg-nolands-primary/90 text-white font-locator font-bold px-8"
               >
                 Submit Tax Health Check
@@ -669,7 +1124,7 @@ const TaxHealthCheckForm = () => {
 
       {/* Footer */}
       <div className="bg-nolands-primary text-white py-6 px-4 mt-12">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <p className="font-locator text-sm">
             © 2024 Nolands Nigeria. All rights reserved. | contacts@nolands.ng
           </p>
