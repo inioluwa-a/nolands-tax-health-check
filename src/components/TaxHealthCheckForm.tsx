@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -412,23 +411,32 @@ const TaxHealthCheckForm = () => {
       {/* Header */}
       <div className="bg-nolands-primary text-white py-8 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <img 
-            src="https://nolands.global/theme/assets/icon-nolands-logo-white-small.svg" 
-            alt="Nolands Logo" 
-            className="h-12 mx-auto mb-4"
-          />
-          <h1 className="font-locator-display font-bold text-3xl md:text-4xl mb-2">
-            Nolands NG.
-          </h1>
-          <h2 className="font-locator font-bold text-xl md:text-2xl mb-2">
-            Tax Advisory Audit
-          </h2>
-          <h3 className="font-locator font-bold text-lg md:text-xl mb-4">
-            Tax Health Check
-          </h3>
-          <p className="font-locator text-sm opacity-90">
-            TARICS - Tax, Accounting, Regulatory and Information Clinic Services
-          </p>
+          {/* First Heading - Logo and Nolands NG. */}
+          <div className="flex items-center justify-center mb-6">
+            <img 
+              src="https://nolands.global/theme/assets/icon-nolands-logo-white-small.svg" 
+              alt="Nolands Logo" 
+              className="h-12 mr-4"
+            />
+            <div className="text-left">
+              <h1 className="font-locator-display font-bold text-3xl md:text-4xl">
+                Nolands NG.
+              </h1>
+              <p className="font-locator text-sm opacity-90 mt-1">
+                Tax. Advisory. Audit.
+              </p>
+            </div>
+          </div>
+          
+          {/* Second Heading - Tax Health Check */}
+          <div>
+            <h2 className="font-locator font-bold text-xl md:text-2xl mb-2">
+              Tax Health Check
+            </h2>
+            <p className="font-locator text-sm opacity-90">
+              TARICS - Tax, Accounting, Regulatory and Information Clinic Services
+            </p>
+          </div>
         </div>
       </div>
 
@@ -437,20 +445,20 @@ const TaxHealthCheckForm = () => {
         <div className="flex items-center justify-between mb-8 overflow-x-auto">
           {stepTitles.map((title, index) => (
             <div key={index} className="flex items-center min-w-0">
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
                 currentStep > index + 1 ? 'bg-green-500 text-white' :
                 currentStep === index + 1 ? 'bg-nolands-primary text-white' :
                 'bg-gray-300 text-gray-600'
               }`}>
                 {currentStep > index + 1 ? '✓' : index + 1}
               </div>
-              <span className={`ml-2 text-xs font-medium hidden lg:block ${
-                currentStep === index + 1 ? 'text-nolands-primary' : 'text-gray-600'
+              <span className={`ml-3 text-sm font-medium ${
+                currentStep === index + 1 ? 'text-nolands-primary font-bold' : 'text-gray-600'
               }`}>
                 {title}
               </span>
               {index < stepTitles.length - 1 && (
-                <div className={`h-1 w-4 lg:w-8 mx-2 ${
+                <div className={`h-1 w-8 lg:w-12 mx-4 ${
                   currentStep > index + 1 ? 'bg-green-500' : 'bg-gray-300'
                 }`} />
               )}
@@ -630,12 +638,6 @@ const TaxHealthCheckForm = () => {
               {/* Section I: General */}
               {currentStep === 2 && (
                 <div className="space-y-4">
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
-                    <div>Action</div>
-                    <div>Response</div>
-                    <div className="lg:col-span-2">Comment</div>
-                  </div>
-                  
                   {renderQuestionRow(
                     "Has company been registered with FIRS?",
                     'firsRegistered',
@@ -713,12 +715,6 @@ const TaxHealthCheckForm = () => {
               {/* Section II: Withholding Tax */}
               {currentStep === 3 && (
                 <div className="space-y-4">
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
-                    <div>Action</div>
-                    <div>Response</div>
-                    <div className="lg:col-span-2">Comment</div>
-                  </div>
-                  
                   {renderQuestionRow(
                     "Does the company observe a vendor registration process?",
                     'vendorRegistration',
@@ -760,12 +756,6 @@ const TaxHealthCheckForm = () => {
               {/* Section III: Personal Income Tax */}
               {currentStep === 4 && (
                 <div className="space-y-4">
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
-                    <div>Action</div>
-                    <div>Response</div>
-                    <div className="lg:col-span-2">Comment</div>
-                  </div>
-                  
                   {renderQuestionRow(
                     "Are all incomes (including allowances and benefits in kind) on the employees' personal records included in the payroll?",
                     'allIncomesIncluded',
@@ -891,12 +881,6 @@ const TaxHealthCheckForm = () => {
               {/* Section IV: VAT */}
               {currentStep === 5 && (
                 <div className="space-y-4">
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
-                    <div>Action</div>
-                    <div>Response</div>
-                    <div className="lg:col-span-2">Comment</div>
-                  </div>
-                  
                   {renderQuestionRow(
                     "Is the Company registered with local VAT offices nearest to it in all its locations?",
                     'vatRegistered',
@@ -944,12 +928,6 @@ const TaxHealthCheckForm = () => {
               {/* Section V: Company Income Tax */}
               {currentStep === 6 && (
                 <div className="space-y-4">
-                  <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 bg-gray-50 p-3 font-semibold text-sm">
-                    <div>Action</div>
-                    <div>Response</div>
-                    <div className="lg:col-span-2">Comment</div>
-                  </div>
-                  
                   <div className="font-semibold text-gray-700 py-2">GENERAL</div>
                   
                   {renderQuestionRow(
