@@ -399,11 +399,11 @@ const TaxHealthCheckForm = () => {
 
   const stepTitles = [
     "Basic Information",
-    "Section I: General", 
-    "Section II: Withholding Tax",
-    "Section III: Personal Income Tax",
-    "Section IV: Value Added Tax (VAT)",
-    "Section V: Company Income Tax"
+    "General", 
+    "Withholding Tax",
+    "Personal Income Tax",
+    "Value Added Tax (VAT)",
+    "Company Income Tax"
   ];
 
   return (
@@ -411,7 +411,7 @@ const TaxHealthCheckForm = () => {
       {/* Header */}
       <div className="bg-nolands-primary text-white py-8 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          {/* First Heading - Logo and Nolands NG. */}
+          {/* First Heading - Logo and NG. */}
           <div className="flex items-center justify-center mb-6">
             <img 
               src="https://nolands.global/theme/assets/icon-nolands-logo-white-small.svg" 
@@ -420,7 +420,7 @@ const TaxHealthCheckForm = () => {
             />
             <div className="text-left">
               <h1 className="font-locator-display font-bold text-3xl md:text-4xl">
-                Nolands NG.
+                NG.
               </h1>
               <p className="font-locator text-sm opacity-90 mt-1">
                 Tax. Advisory. Audit.
