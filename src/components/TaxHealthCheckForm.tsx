@@ -431,10 +431,10 @@ const TaxHealthCheckForm = () => {
           {/* Second Heading - Tax Health Check */}
           <div>
             <h2 className="font-locator font-bold text-xl md:text-2xl mb-2">
-              Tax Health Check
+              TARICS - Tax, Accounting, Regulatory and Information Clinic Services
             </h2>
             <p className="font-locator text-sm opacity-90">
-              TARICS - Tax, Accounting, Regulatory and Information Clinic Services
+              Tax Health Check
             </p>
           </div>
         </div>
@@ -569,12 +569,11 @@ const TaxHealthCheckForm = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="tin" className="font-locator font-semibold">
-                        Tax Identification Number (TIN) *
-                      </Label>
+                        Tax Identification Number (TIN) (Optional)                  </Label>
                       <Input
                         id="tin"
                         name="tin"
-                        required
+                  
                         value={formData.tin}
                         onChange={(e) => handleInputChange('tin', e.target.value)}
                         className="mt-1"
@@ -663,7 +662,7 @@ const TaxHealthCheckForm = () => {
                   )}
                   
                   {renderQuestionRow(
-                    "What is the company's office located?",
+                    "Where is the company's office located?",
                     'officeLocation',
                     'officeLocationComment'
                   )}
