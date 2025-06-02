@@ -490,29 +490,46 @@ const TaxHealthCheckForm = () => {
 
       {/* Progress Indicator */}
       <div className="max-w-6xl mx-auto p-4 pt-8">
-        <div className="flex items-center justify-between mb-8 overflow-x-auto">
-          {stepTitles.map((title, index) => (
-            <div key={index} className="flex items-center min-w-0">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
-                currentStep > index + 1 ? 'bg-green-500 text-white' :
-                currentStep === index + 1 ? 'bg-nolands-primary text-white' :
-                'bg-gray-300 text-gray-600'
-              }`}>
-                {currentStep > index + 1 ? '✓' : index + 1}
-              </div>
-              <span className={`ml-3 text-sm font-medium ${
-                currentStep === index + 1 ? 'text-nolands-primary font-bold' : 'text-gray-600'
-              }`}>
-                {title}
-              </span>
-              {index < stepTitles.length - 1 && (
-                <div className={`h-1 w-8 lg:w-12 mx-4 ${
-                  currentStep > index + 1 ? 'bg-green-500' : 'bg-gray-300'
-                }`} />
-              )}
-            </div>
-          ))}
+  {/* Mobile: Only show current step */}
+  <div className="flex items-center justify-between mb-8 sm:hidden">
+    <div className="flex items-center">
+      <div className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold
+        bg-nolands-primary text-white">
+        {currentStep}
+      </div>
+      <span className="ml-3 text-base font-medium text-nolands-primary font-bold">
+        {stepTitles[currentStep - 1]}
+      </span>
+    </div>
+    {currentStep < stepTitles.length && (
+      <ChevronRight className="w-6 h-6 text-gray-400" />
+    )}
+  </div>
+  {/* Tablet/Desktop: Show full stepper */}
+  <div className="hidden sm:flex items-center justify-between mb-8 overflow-x-auto">
+    {stepTitles.map((title, index) => (
+      <div key={index} className="flex items-center min-w-0">
+        <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
+          currentStep > index + 1 ? 'bg-green-500 text-white' :
+          currentStep === index + 1 ? 'bg-nolands-primary text-white' :
+          'bg-gray-300 text-gray-600'
+        }`}>
+          {currentStep > index + 1 ? '✓' : index + 1}
         </div>
+        <span className={`ml-3 text-sm font-medium ${
+          currentStep === index + 1 ? 'text-nolands-primary font-bold' : 'text-gray-600'
+        }`}>
+          {title}
+        </span>
+        {index < stepTitles.length - 1 && (
+          <div className={`h-1 w-8 lg:w-12 mx-4 ${
+            currentStep > index + 1 ? 'bg-green-500' : 'bg-gray-300'
+          }`} />
+        )}
+      </div>
+    ))}
+  </div>
+
 
         {/* Form */}
         <form onSubmit={handleSubmit} method="POST" action="https://formspree.io/f/meogdgvr">
