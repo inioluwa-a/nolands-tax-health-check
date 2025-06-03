@@ -466,10 +466,14 @@ const TaxHealthCheckForm = () => {
               alt="Nolands Logo" 
               className="h-12 mr-4"
             />
-            <div className="text-left">
-              <h1 className="font-locator-display font-bold text-3xl md:text-4xl">
-                NG.
-              </h1>
+            {/* Nigerian Flag */}
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg"
+        alt="Nigerian Flag"
+        className="h-4 w-8 rounded shadow-sm border"
+        style={{ objectFit: "cover" }}
+      />
+            <div className="text-left ml-4">
               <p className="font-locator text-sm opacity-90 mt-1">
                 Tax. Advisory. Audit.
               </p>
