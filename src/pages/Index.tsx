@@ -1,8 +1,8 @@
 
-import TaxHealthCheckForm from "@/components/TaxHealthCheckForm";
+import LandingPage from "@/components/LandingPage";
 
 const Index = () => {
-  return <TaxHealthCheckForm />;
+  return <LandingPage />;
 };
 
 export default Index;
