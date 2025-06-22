@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, FileText, Users, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
@@ -323,10 +324,17 @@ const LandingPage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/Noland Logo.svg" alt="Nolands" className="h-8 w-8" />
-                <div>
-                  <span className="text-xl font-bold">NG.</span>
-                  <div className="text-xs text-blue-200">Tax. Advisory. Audit.</div>
+                <img src="/Noland Logo.svg" alt="Nolands" className="h-8 w-8 fill-current" />
+                <div className="flex items-center gap-2">
+                  {/* Nigerian Flag */}
+                  <div className="flex h-4 w-6 border border-blue-400 overflow-hidden rounded-sm">
+                    <div className="w-1/3 bg-green-600"></div>
+                    <div className="w-1/3 bg-white"></div>
+                    <div className="w-1/3 bg-green-600"></div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-blue-200">Tax. Advisory. Audit.</div>
+                  </div>
                 </div>
               </div>
               <p className="text-blue-100 mb-4">
