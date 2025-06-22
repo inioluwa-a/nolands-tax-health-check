@@ -1,9 +1,9 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Shield, FileText, Users, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 import TaxHealthCheckForm from "./TaxHealthCheckForm";
+import Navigation from "./Navigation";
 
 const LandingPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -20,8 +20,10 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Navigation />
+      
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-nolands-primary to-blue-700 text-white py-20 px-4">
+      <section id="hero" className="relative bg-gradient-to-br from-nolands-primary to-blue-700 text-white py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -60,7 +62,7 @@ const LandingPage = () => {
       </section>
 
       {/* Problem & Solution Section */}
-      <section className="py-16 px-4">
+      <section id="services" className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-nolands-primary mb-4">
@@ -200,7 +202,7 @@ const LandingPage = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 px-4">
+      <section id="how-it-works" className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl lg:text-4xl font-bold text-center text-nolands-primary mb-12">
             How It Works
@@ -235,7 +237,7 @@ const LandingPage = () => {
       </section>
 
       {/* Why Nolands */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section id="about" className="py-16 px-4 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl lg:text-4xl font-bold text-center text-nolands-primary mb-12">
             Why Choose Nolands?
@@ -316,7 +318,7 @@ const LandingPage = () => {
       )}
 
       {/* Footer */}
-      <footer className="bg-nolands-primary text-white py-12 px-4">
+      <footer id="contact" className="bg-nolands-primary text-white py-12 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
