@@ -28,6 +28,11 @@ const LandingPage = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
+               {/* Bonus Badge */}
+              <div className="inline-flex items-center space-x-2 bg-blue-100 text-nolands-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <span className="w-2 h-2 bg-nolands-primary rounded-full animate-pulse"></span>
+                <span>Bonus: Complementary Tax Health Check</span>
+              </div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
                Unlock Peace of Mind<span className="text-blue-200"> Acquire a Tax Risk Insurance Today</span>
               </h1>
