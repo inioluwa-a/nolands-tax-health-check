@@ -29,7 +29,7 @@ const LandingPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight">
-                Unlock Peace of Mind: <span className="text-blue-200">Complimentary Tax Health Check</span> & Tax Risk Insurance
+               Unlock Peace of Mind<span className="text-blue-200">Acquire a Tax Risk Insurance Today</span>
               </h1>
               <p className="text-xl lg:text-2xl mb-8 text-blue-100">
                 Protect your business from unexpected tax liabilities and ensure full compliance with Nigeria's complex tax regulations. Get your free assessment today.
