@@ -34,11 +34,48 @@ interface FormData {
 
 // Define form questions for each step
 const basicInformationQuestions: Question[] = [
-  { question: 'Company Name', type: 'text', required: true, placeholder: 'Enter company name' },
-  { question: 'Contact Person', type: 'text', required: true, placeholder: 'Enter contact person name' },
-  { question: 'Email Address', type: 'text', required: true, placeholder: 'Enter email address' },
-  { question: 'Phone Number', type: 'text', required: true, placeholder: 'Enter phone number' },
-  { question: 'Company Address', type: 'textarea', required: true, placeholder: 'Enter company address' },
+  {
+    question: "Company Name",
+    type: "text",
+    required: true,
+    placeholder: "Enter company name",
+  },
+  {
+    question: "Contact Person",
+    type: "text",
+    required: true,
+    placeholder: "Enter contact person name",
+  },
+  {
+    question: "Email Address",
+    type: "text",
+    required: true,
+    placeholder: "Enter email address",
+  },
+  {
+    question: "Phone Number",
+    type: "text",
+    required: true,
+    placeholder: "Enter phone number",
+  },
+  {
+    question: "Company Address",
+    type: "textarea",
+    required: true,
+    placeholder: "Enter company address",
+  },
+  {
+    question: "Tax Identification Number (TIN)",
+    type: "text",
+    required: false,
+    placeholder: "Enter TIN (optional)",
+  },
+  {
+    question: "RC Number",
+    type: "text",
+    required: false,
+    placeholder: "Enter RC Number (optional)",
+  },
 ];
 
 const generalQuestions: Question[] = [
