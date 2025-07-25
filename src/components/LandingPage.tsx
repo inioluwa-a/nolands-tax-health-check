@@ -329,7 +329,7 @@ const LandingPage = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <img src="/icon-nolands-logo-white-small.svg" alt="Nolands" className="fill-current" />
+                <img src="/icon-nolands-logo-white-small.svg" alt="Nolands" className=" h-8 fill-current" />
                 <div className="flex items-center gap-2">
                   {/* Nigerian Flag */}
                   <div className="flex h-4 w-6 border border-blue-400 overflow-hidden rounded-sm">
