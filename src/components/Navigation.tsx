@@ -28,7 +28,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
           <div className="flex items-center gap-2">
-            {/* <img src="/favicon.png" alt="Favicon" className="h-8 w-8" /> */}
+            
             <img src="/icon-nolands-logo-blue-small.svg" alt="Nolands" className="h-8 fill-current" />
             <div className="flex items-center gap-2">
               {/* Nigerian Flag */}
